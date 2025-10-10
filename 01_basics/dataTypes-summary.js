@@ -36,6 +36,12 @@ const myFunction = function () {
 // all primitive data types typeof is function
 // in case of function its object function
 
+
+
+// stack(Primitive), Heap(Non-Primitive)
+
+
+
 // is javscript dynamically typed or statically
 //  JavaScript is a dynamically typed language.
 // You don’t need to declare variable types (like int, string, bool, etc.).
