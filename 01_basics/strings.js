@@ -23,6 +23,16 @@ console.log(newStrigg);
 const anotherString=gameName.slice(-8,4);
 console.log(anotherString);
 
+const newStringOne="       Pravin      "
+console.log(newStringOne);
+console.log(newStringOne.trim());
+
+const url="goog%20gle.com"
+console.log(url.replace('%20','-'));
+console.log(url.includes("goog"));
+
+const stringTwo="google-chrome-brave"
+console.log(stringTwo.split('-'));
 
 
 
