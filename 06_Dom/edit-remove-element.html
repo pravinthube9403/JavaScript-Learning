@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit remove element</title>
+    <style>
+        .bg-color {
+            background-color: #212121;
+            color: #FFF;
+        }
+    </style>
+</head>
+
+<body class="bg-color">
+    <ul class="language">
+        <li class="name">js</li>
+    </ul>
+
+
+    <script>
+
+        //this is not optimized way
+        function addLanguage(langName) {
+            const li = document.createElement("li")
+            li.innerHTML = `${langName}`
+
+            document.querySelector(".language").appendChild(li)
+        }
+
+        addLanguage("python");
+        addLanguage("typescript");
+
+
+        //optimized way
+        function addOptiLanguage(langName) {
+            const li = document.createElement("li");
+            li.appendChild(document.createTextNode(langName));
+            document.querySelector(".language").appendChild(li)
+        }
+        addOptiLanguage("golang")
+
+
+        //**************edit***********
+
+        const secondlang = document.querySelector("li:nth-child(2)")
+        //not optimizes way
+        // secondlang.innerHTML = "mojo"
+
+        //optimized way
+        const newli = document.createElement("li")
+        newli.textContent = "mojo"
+        secondlang.replaceWith(newli)
+
+        //**************edit***********
+
+        const firstlang = document.querySelector("li:first-child")
+        firstlang.outerHTML = "<li>TYPESCRIPT</li>"
+
+
+        //*************remove************
+        const lastlang = document.querySelector("li:last-child")
+        lastlang.remove()
+    </script>
+</body>
+
+</html>
