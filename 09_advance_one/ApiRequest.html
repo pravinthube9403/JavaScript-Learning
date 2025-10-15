@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card-wrap {
+            display: flex;
+        }
+
+        .card {
+            padding: 10px;
+            background-color: aquamarine;
+            margin-right: 20px;
+        }
+
+        .card-img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-wrap">
+        <div class="card">
+            <img class="card-img" src="" alt="">
+            <h5 class="card-name"></h5>
+            <p class="card-follow"></p>
+        </div>
+        <div class="card">
+            <img class="card-img" src="" alt="">
+            <h5 class="card-name"></h5>
+            <p class="card-follow"></p>
+        </div>
+        <div class="card">
+            <img class="card-img" src="" alt="">
+            <h5 class="card-name"></h5>
+            <p class="card-follow"></p>
+        </div>
+        <div class="card">
+            <img class="card-img" src="" alt="">
+            <h5 class="card-name"></h5>
+            <p class="card-follow"></p>
+        </div>
+    </div>
+</body>
+<script>
+    //create a card suing this api
+
+    const requesturl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requesturl);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText);
+            console.log(data);
+            console.log(data.followers);
+            console.log(data.login);
+
+            let cards = document.querySelectorAll(".card");
+
+            cards.forEach((card) => {
+                let cardName = card.querySelector(".card-name");
+                let cardFollower = card.querySelector(".card-follow");
+                let cardImg = card.querySelector(".card-img");
+ 
+                cardName.innerHTML = data.login;
+                cardFollower.innerHTML = data.followers;
+                cardImg.src = data.avatar_url;
+            });
+        }
+    };
+    xhr.send();
+
+
+
+
+
+</script>
+
+</html>
